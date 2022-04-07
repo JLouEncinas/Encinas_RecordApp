@@ -1,6 +1,6 @@
 <?php
-	define('ROOT_URL', 'http://localhost/Encinas_RecordApp/');
+	define('ROOT_URL','');
 	define('DB_HOST', 'localhost');
 	define('DB_USER', 'root');
-	define('DB_PASS', 'helloadmin');
+	define('DB_PASS', '');
 	define('DB_NAME', 'loudb');
