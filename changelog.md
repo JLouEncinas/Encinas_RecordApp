@@ -20,7 +20,6 @@ Direction:
 ## These are the items you have to accomplished:  
 
 
-
 2022-04-06
 [/] Add assets to the project.  
 [/] Create includes directory; create navbar and sidebar.  
@@ -31,9 +30,11 @@ Direction:
 [/] Create page for List of employees.  
 [/] Create page for List of transactions.  
 
-[x] Create page for adding office.  
-[x] Create page for adding employee.  
-[x] Create page for adding transactions.  
+2022-04-08
+[/] Create page for adding office.  
+[/] Create page for adding employee.  
+[/] Create page for adding transactions. 
+
 [x] Applying pagination to list of office.  
 [x] Applying pagination to list of employees.  
 [x] Applying pagination to list of transactions.  
