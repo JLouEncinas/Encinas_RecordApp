@@ -23,14 +23,35 @@
     require('config/config.php');
     require('config/db.php');
 
+    // Define total number of results you want per page
+    $results_per_page = 15;
+
+    // Find the total number of results/rows stored in the database
+    $query = "SELECT * FROM employee";
+    $result = mysqli_query($conn, $query);
+    $number_of_result = mysqli_num_rows($result);
+
+    // Determine the total number of pages available
+    $number_of_page = ceil($number_of_result / $results_per_page);
+
+    // Determine which page number visitor is currently on
+    if(!isset($_GET['page'])){
+        $page = 1;
+    }else{
+        $page = $_GET['page'];
+    }
+
+    // Determine the SQL LIMIT starting number for the results on the display page
+    $page_first_result = ($page-1) * $results_per_page;
+
     // Create Query
-    $query = 'SELECT employee.lastname, employee.firstname, employee.address, office.name as office_name FROM employee, office WHERE employee.office_id = office.id ORDER BY employee.lastname';
+    $query = 'SELECT employee.lastname, employee.firstname, employee.address, office.name as office_name FROM employee, office WHERE employee.office_id = office.id ORDER BY employee.lastname LIMIT '. $page_first_result . ',' . $results_per_page;
 
     // Get the result
     $result = mysqli_query($conn, $query);
 
     // Fetch the data
-    $offices = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $employees = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     // Free result
     mysqli_free_result($result);
@@ -77,12 +98,12 @@
 
                                         </thead>
                                         <tbody>
-                                            <?php foreach($offices as $office) : ?>
+                                            <?php foreach($employees as $employee) : ?>
                                             <tr>
-                                                <td><?php echo $office['lastname']; ?></td>
-                                                <td><?php echo $office['firstname']; ?></td>
-                                                <td><?php echo $office['address']; ?></td>
-                                                <td><?php echo $office['office_name']; ?></td>
+                                                <td><?php echo $employee['lastname']; ?></td>
+                                                <td><?php echo $employee['firstname']; ?></td>
+                                                <td><?php echo $employee['address']; ?></td>
+                                                <td><?php echo $employee['office_name']; ?></td>
                                                 
                                             </tr>
                                             <?php endforeach ?>
@@ -92,6 +113,11 @@
                             </div>
                         </div>
                     </div>
+                    <?php 
+                        for($page=1; $page <= $number_of_page; $page++){
+                            echo '<a href = "employee.php?page='. $page . '">' . $page . '</a>';
+                        }
+                    ?>
                 </div>
             </div>
             <footer class="footer">
