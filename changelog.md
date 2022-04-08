@@ -21,16 +21,21 @@ Direction:
 
 
 2022-04-06
+
 [/] Add assets to the project.  
 [/] Create includes directory; create navbar and sidebar.  
 [/] Setup database configuration.  
 
+
 2022-04-07
+
 [/] Create page for List of office.
 [/] Create page for List of employees.  
 [/] Create page for List of transactions.  
 
+
 2022-04-08
+
 [/] Create page for adding office.  
 [/] Create page for adding employee.  
 [/] Create page for adding transactions. 
@@ -42,7 +47,6 @@ Direction:
 [/] Create search feature in list of employees. (challenge)  
 [/] Edit page for office.  
 [/] Edit page for employees.  
-
-[x] Edit page for transactions. (challenge)
+[/] Edit page for transactions. (challenge)
 
 ***challenge means not included in the video***
